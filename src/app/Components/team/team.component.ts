@@ -16,5 +16,6 @@ export class TeamComponent implements OnInit{
   }
   Details() {
     this.dataEmitter.emit(this.data.id)
+    
   }
 }
