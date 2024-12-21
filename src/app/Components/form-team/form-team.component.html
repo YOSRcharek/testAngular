@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+      <form (ngSubmit)="ajouter()" #form="ngForm">
+        <div class="container">
+          <div class="row">
+            <div class="mb-3">
+              <label for="name">name :</label>
+              <input type="text" class="form-control" id="name" #name="ngModel" pattern="[a-zA-Z0-9]*"[(ngModel)]="team.name" name="name" required >
+              <div *ngIf="name.invalid && (name.touched || name.dirty)" class="text-danger">
+                <small *ngIf="name.errors?.['required']">Name obligatoire .</small>
+                <small *ngIf="name.errors?.['pattern']">Le name ne doit contenir que des lettres et des chiffres.</small>              
+            </div>
+            </div>
+            <div class="mb-3">
+                <label for="projectName">projectName :</label>
+                <input type="text" class="form-control" id="projectName" #projectName="ngModel" pattern="[a-zA-Z0-9]*" [(ngModel)]="team.projectName" name="projectName" required>
+                <div *ngIf="projectName.invalid && (projectName.touched || projectName.dirty)" class="text-danger">
+                    <small *ngIf="projectName.errors?.['required']">projectName obligatoire .</small>
+                    <small *ngIf="projectName.errors?.['pattern']">Le projectName ne doit contenir que des lettres et des chiffres.</small>              
+                </div>
+            </div>
+              <div class="mb-3">
+                <label for="level">level :</label>
+                <input type="text" class="form-control" id="level" #level="ngModel" pattern="[a-zA-Z0-9]*" [(ngModel)]="team.level" name="level" required>
+                <div *ngIf="level.invalid && (level.touched || level.dirty)" class="text-danger">
+                    <small *ngIf="level.errors?.['required']">Level obligatoire .</small>
+                    <small *ngIf="level.errors?.['pattern']">Le level ne doit contenir que des lettres et des chiffres.</small>              
+                </div> 
+            </div>
+
+              <div class="mb-3">
+                <label for="projectDescription">projectDescription :</label>
+                <input type="text" class="form-control" id="projectDescription" #projectDescription="ngModel" [(ngModel)]="team.projectDescription" name="projectDescription" minlength="5">
+                <div *ngIf="!projectDescription?.valid" class="text-danger">
+                    <small *ngIf="projectDescription.errors?.['minlength']"> Minimum 5 caractères</small>
+                </div> 
+            </div>
+
+              <div class="mb-3">
+                <label>participant :</label>
+         
+             <div>
+              <label for="fullname">full Name :</label>
+             
+              <input type="text" class="form-control" id="fullname" #fullname="ngModel" [(ngModel)]="team.participants" name="fullname" >
+         
+              <label for="email">Email :</label>
+         
+              <input type="text" class="form-control" id="email" #email="ngModel" [(ngModel)]="team.participants" name="email" >
+         
+             </div>
+             
+             
+</div>
+
+           
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Ajouter</button>
+            </div>
+  
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
